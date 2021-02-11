@@ -13,7 +13,9 @@ class LoginPage extends React.Component {
     ApiCalls.post("/auth/sign_in.json", values).then((res) => {
       if (res.ok) {
         const response = res.data;
+        const headers = res;
         console.log(response);
+        console.log(headers);
       } else {
         console.log("Login error");
       }
