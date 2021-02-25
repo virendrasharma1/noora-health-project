@@ -5,10 +5,13 @@ let baseURL = "http://35.184.241.192/interviews";
 
 const api = create({
   baseURL,
-  // Increase timeout to 10 minutes
-  timeout: 600000,
   headers: {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
+    "access-token": localStorage.getItem("access-token"),
+    "client": localStorage.getItem("client"),
+    "expiry": localStorage.getItem("expiry"),
+    "uid": localStorage.getItem("uid"),
+    "token-type": localStorage.getItem("token-type"),
   },
 });
 

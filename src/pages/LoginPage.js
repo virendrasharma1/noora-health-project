@@ -9,15 +9,17 @@ class LoginPage extends React.Component {
   };
 
   onSubmitHandler = (values) => {
-      alert(JSON.stringify(values));
     ApiCalls.post("/auth/sign_in.json", values).then((res) => {
       if (res.ok) {
         const response = res.data;
-        const headers = res;
-        console.log(response);
-        console.log(headers);
+        localStorage.setItem("access-token", response["access-token"]);
+        localStorage.setItem("client", response["client"]);
+        localStorage.setItem("expiry", response["expiry"]);
+        localStorage.setItem("uid", response["uid"]);
+        localStorage.setItem("token-type", response["token-type"]);
+        window.location.reload();
       } else {
-        console.log("Login error");
+        alert("Login error");
       }
     });
   };

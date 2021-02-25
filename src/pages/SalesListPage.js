@@ -19,6 +19,7 @@ class SalesListPage extends React.Component {
         ApiCalls.get(`/sales.json`).then((res) => {
             if (res.ok) {
                 const response = res.data;
+                console.log(response);
                 this.setState({
                     salesList: response.data
                 });
